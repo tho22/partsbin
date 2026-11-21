@@ -162,3 +162,8 @@ in via the keyboard button on the capture screen.
 
 With Ollama there are no API costs. With Claude, one identification is a single API request with one downscaled image (max. 1568 px). With
 `claude-opus-5-5` at medium effort that is typically a few cents per photo.
+
+## License
+
+MIT, see [LICENSE](LICENSE). The SUPVAN frame format follows
+[heeen/supvan-cups](https://github.com/heeen/supvan-cups) (MIT).
