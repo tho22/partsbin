@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup Partsbin inventory (database + photos) to the NAS
+After=network-online.target pve-guests.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/partsbin-backup.sh

@@ -1,0 +1,28 @@
+# Portainer stack for a single docker host. The image is built locally on that host
+# (see deploy/deploy.sh), so it is never pulled. Set PARTSBIN_BIND/PARTSBIN_PORT in the stack
+# environment to choose the listening address (default: all interfaces, port 8085).
+services:
+  partsbin:
+    image: partsbin:latest
+    pull_policy: never
+    container_name: partsbin
+    restart: unless-stopped
+    ports:
+      - "${PARTSBIN_BIND:-0.0.0.0}:${PARTSBIN_PORT:-8085}:8000"
+    environment:
+      PARTSBIN_PROVIDER: ${PARTSBIN_PROVIDER}
+      PARTSBIN_LANGUAGE: ${PARTSBIN_LANGUAGE}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      PARTSBIN_MODEL: ${PARTSBIN_MODEL}
+      PARTSBIN_EFFORT: ${PARTSBIN_EFFORT}
+      OLLAMA_URL: ${OLLAMA_URL}
+      OLLAMA_MODEL: ${OLLAMA_MODEL}
+      OLLAMA_TIMEOUT: ${OLLAMA_TIMEOUT}
+    labels:
+      # Locally built image, nothing to check upstream.
+      diun.enable: "false"
+    volumes:
+      - partsbin-data:/data
+
+volumes:
+  partsbin-data:

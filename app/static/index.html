@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14532d">
+  <title>Partsbin</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/" class="brand">Partsbin</a>
+    <form id="search-form" class="search">
+      <input id="search-input" type="search" placeholder="Search parts…" autocomplete="off">
+    </form>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <nav class="tabbar">
+    <a href="#/" data-tab="home">🏠<span>Home</span></a>
+    <a href="#/parts" data-tab="parts">📦<span>Parts</span></a>
+    <a href="#/capture" data-tab="capture" class="primary">📷<span>Capture</span></a>
+    <a href="#/locations" data-tab="locations">🗄️<span>Storage</span></a>
+    <a href="#/projects" data-tab="projects">🛠️<span>Projects</span></a>
+  </nav>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/static/app.js" type="module"></script>
+</body>
+</html>
